@@ -9,6 +9,8 @@ pipeline {
         stage('sh') {
             steps {
                sh 'ls'
+               sh 'pwd'
+               sh './sample.sh' 
             }
         }          
     }
