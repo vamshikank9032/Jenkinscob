@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branh: 'main', credentialsId: 'Git', url: 'https://github.com/vamshikank9032/Jenkinscob.git'
+                git branch: 'main', credentialsId: 'Git', url: 'https://github.com/vamshikank9032/Jenkinscob.git'
             }
         }
         stage('sh') {
