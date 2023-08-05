@@ -29,7 +29,6 @@ pipeline {
            } 
 
             steps {
-                sh  pwd
                 sh 'echo "Validating template ${TEMPLATE_FILE}"'
                 withAWS(role: "$arn:aws:iam::737576955452:role/Role_For_Jenkins") {
                     sh 'echo "Validating template ${TEMPLATE_FILE}"'
