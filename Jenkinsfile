@@ -17,7 +17,7 @@ pipeline {
         }
         stage('sh') {
             steps {
-               sh 'cd /home/ec2-user/git/Jenkinscob'
+               sh 'echo sh step executed'
                sh './sample.sh'
             }
         }
