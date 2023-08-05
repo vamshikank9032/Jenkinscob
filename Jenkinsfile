@@ -31,11 +31,7 @@ pipeline {
                 //sh 'echo sh step executed'
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
                 withAWS(role: "${AWS_ROLE_ARN}") {
-                    sh 'echo sh step executed1'
-                    sh 'echo sh step executed1'
-                    sh 'echo sh step executed2'
-                    sh pwd
-                    sh 'echo "Checking Name of stack ${STACK_NAME}"'
+                    echo "Running cfn template Validation"
                     sh 'for file in `find .workspace/pipeline/cloudformation -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
                     //sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
                 //create stack
