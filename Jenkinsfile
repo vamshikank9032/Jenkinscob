@@ -31,7 +31,7 @@ pipeline {
                 //sh 'echo sh step executed'
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
                 withAWS(region: "${AWS_REGION}", role: "${AWS_ROLE_ARN}")
-                withAWS(role: "${AWS_ROLE_ARN}") {
+                //withAWS(role: "${AWS_ROLE_ARN}") {
                     echo "Running cfn template Validation"
                     sh 'for file in `find .workspace/pipeline/cloudformation -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
                     //sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
