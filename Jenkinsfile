@@ -34,8 +34,7 @@ pipeline {
                     sh 'echo sh step executed'
                     sh 'echo sh step executed1'
                     sh 'echo sh step executed2'
-                    sh 'cnvje=pwd'
-                    sh 'echo $cnvje'
+                    sh pwd
                     sh 'echo "Checking Name of stack ${STACK_NAME}"'
                     sh 'for file in `find .workspace/pipeline/cloudformation -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
                     //sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
