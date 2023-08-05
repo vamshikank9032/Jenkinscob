@@ -17,8 +17,9 @@ pipeline {
         }
         stage('sh') {
             steps {
-               sh 'cd /home/ec2-user/git/Jenkinscob'
-               sh './sample.sh'
+              // sh 'cd /home/ec2-user/git/Jenkinscob'
+                 sh 'echo Hello'
+                 sh './sample.sh'
             }
         }
         stage('Deploy CF Template') {
@@ -31,6 +32,7 @@ pipeline {
                     sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
                 //create stack
                 sh """
+                   echo "Deploy step executing"
                    aws cloudformation deploy
                    --region ${AWS_REGION}
                    --stack-name ${STACK_NAME}
