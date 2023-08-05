@@ -12,7 +12,7 @@ pipeline {
         stage('Git Checkout') {
             steps {
               git url: 'https://github.com/vamshikank9032/Jenkinscob.git'  
-              sh pwd  
+              sh 'echo present directory is $pwd'  
             //git branch: 'Release' credentialsId: 'Git', url: 'https://github.com/vamshikank9032/Jenkinscob.git'
             }
         }
