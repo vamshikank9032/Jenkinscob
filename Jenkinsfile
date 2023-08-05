@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-              stash 'Source'
+              //stash 'Source'
               git url: 'https://github.com/vamshikank9032/Jenkinscob.git'  
               sh "ls -lat"  
             //git branch: 'Release' credentialsId: 'Git', url: 'https://github.com/vamshikank9032/Jenkinscob.git'
@@ -28,7 +28,7 @@ pipeline {
            } 
 
             steps {
-                sh 'echo sh step executed'
+                //sh 'echo sh step executed'
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
                 withAWS(role: "$arn:aws:iam::737576955452:role/Role_For_Jenkins") {
                     sh 'echo sh step executed1'
