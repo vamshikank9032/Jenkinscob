@@ -13,6 +13,7 @@ pipeline {
             steps {
               git url: 'https://github.com/vamshikank9032/Jenkinscob.git'  
             //git branch: 'Release' credentialsId: 'Git', url: 'https://github.com/vamshikank9032/Jenkinscob.git'
+              sh pwd  
             }
         }
         stage('sh') {
