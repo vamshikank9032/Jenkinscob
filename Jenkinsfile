@@ -3,7 +3,7 @@ pipeline {
     environment {
         AWS_REGION = 'us-east-2'
         STACK_NAME = 'sample-s3-CF'
-        TEMPLATE_FILE = '.workspace/pipe/cloudformation/*.yaml'
+        TEMPLATE_FILE = '.workspace/pipe/cloudformation/'
         GIT_REPO_URL = 'https://github.com/vamshikank9032/Jenkinscob.git'
         GIT_BRANCH = 'Release'
 
@@ -31,7 +31,7 @@ pipeline {
             steps {
                 sh 'echo "Validating template ${TEMPLATE_FILE}"'
                 withAWS(role: "$arn:aws:iam::737576955452:role/Role_For_Jenkins") {
-                    sh 'for file in `find ./cloudformation -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
+                    //sh 'find ./cloudformation -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
                     sh 'echo "Checking Name of stack ${STACK_NAME}"'
                     sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
                 //create stack
