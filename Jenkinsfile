@@ -3,7 +3,7 @@ pipeline {
     environment {
         AWS_REGION = 'us-east-2'
         STACK_NAME = 'sample-s3-CF'
-        TEMPLATE_FILE = '.workspace/pipe/cloudformation/'
+        TEMPLATE_FILE = '*.yaml'
         GIT_REPO_URL = 'https://github.com/vamshikank9032/Jenkinscob.git'
         GIT_BRANCH = 'Release'
 
