@@ -15,7 +15,7 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Delete
     Properties:
-      BucketName: lrsegf-kank
+      BucketName: lrsegf-kank1
       Tags:
         - Key: identifier
           Value: Financial
