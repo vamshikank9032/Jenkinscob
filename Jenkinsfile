@@ -15,19 +15,19 @@ pipeline {
             //git branch: 'Release' credentialsId: 'Git', url: 'https://github.com/vamshikank9032/Jenkinscob.git'
             }
         }
-        stage('sh') {
+        /*stage('sh') {
             steps {
                sh 'echo sh step executed'
                sh './sample.sh'
             }
-        }
+        }*/
         stage('Deploy CF Template') {
            environment {
             AWS_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
            } 
 
             steps {
-                sh 'pwd'
+                sh  pwd
                 sh 'echo "Validating template ${TEMPLATE_FILE}"'
                 withAWS(role: "$arn:aws:iam::737576955452:role/Role_For_Jenkins") {
                     sh 'echo "Validating template ${TEMPLATE_FILE}"'
