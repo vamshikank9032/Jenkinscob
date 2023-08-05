@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    environment {
+        AWS_REGION = 'us-east-2'
+        STACK_NAME = 'sample-s3-CF'
+        STACK_NAME = ''
+
+    }
+    stages {
+        stage('Git Checkout') {
+            steps {
+              git url: 'https://github.com/vamshikank9032/Jenkinscob.git'  
+            # git branch: '' credentialsId: 'Git', url: 'https://github.com/vamshikank9032/Jenkinscob.git'
+            }
+        }
+        stage('sh') {
+            steps {
+               sh 'cd /home/ec2-user/git/Jenkinscob'
+               sh './sample.sh'
+            }
+        }          
+    }
+}
