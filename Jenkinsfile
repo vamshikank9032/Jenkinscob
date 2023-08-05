@@ -5,7 +5,7 @@ pipeline {
         STACK_NAME = 'sample-s3-CF'
         TEMPLATE_FILE = './cloudformation'
         GIT_REPO_URL = 'https://github.com/vamshikank9032/Jenkinscob.git'
-        GIT-BRANCH = 'Release'
+        GIT_BRANCH = 'Release'
 
     }
     stages {
