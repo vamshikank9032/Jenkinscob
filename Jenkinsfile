@@ -32,6 +32,8 @@ pipeline {
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
                 withAWS(role: "$arn:aws:iam::737576955452:role/Role_For_Jenkins") {
                     sh 'echo sh step executed'
+                    sh 'echo sh step executed1'
+                    sh 'echo sh step executed2'
                     sh 'cnvje=pwd'
                     sh 'echo $cnvje'
                     sh 'echo "Checking Name of stack ${STACK_NAME}"'
