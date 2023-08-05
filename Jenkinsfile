@@ -32,11 +32,12 @@ pipeline {
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
                 withAWS(role: "$arn:aws:iam::737576955452:role/Role_For_Jenkins") {
                     sh 'echo sh step executed'
-                    sh 'for file in `find ./cloudformation -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
+                    sh 'for file in `find .workspace/pipeline/cloudformation -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
                     sh 'echo "Checking Name of stack ${STACK_NAME}"'
                     //sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
                 //create stack
                 sh """
+                   sh 'echo sh step executed'
                    aws cloudformation deploy
                    --region ${AWS_REGION}
                    --stack-name ${STACK_NAME}
