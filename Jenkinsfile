@@ -30,7 +30,7 @@ pipeline {
             steps {
                 //sh 'echo sh step executed'
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
-                withAWS(role: "$AWS_ROLE_ARN") {
+                withAWS(role: "${AWS_ROLE_ARN}") {
                     sh 'echo sh step executed1'
                     sh 'echo sh step executed1'
                     sh 'echo sh step executed2'
