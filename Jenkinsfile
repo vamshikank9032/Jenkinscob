@@ -28,6 +28,7 @@ pipeline {
 
             steps {
                 withAWS(role: "$arn:aws:iam::737576955452:role/Role_For_Jenkins") {
+                    sh 'echo "Validating template ${TEMPLATE_FILE}"
                     sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
                 //create stack
                 sh """
