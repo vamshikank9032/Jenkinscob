@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        AWS_REGION = 'us-east-2'
+        AWS__DEFAULT_REGION = 'us-east-2'
         STACK_NAME = 'sample-s3-CF'
         GIT_REPO_URL = 'https://github.com/vamshikank9032/Jenkinscob.git'
         GIT_BRANCH = 'Release'
@@ -26,9 +26,9 @@ pipeline {
                 steps {
                 //sh 'echo sh step executed'
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
-                //withCredentials([[$class:'AmazonWebServicesCredentialsBinding',credentialsId: "IAM_USER", ACCESS_KEY: 'ACCESS_KEY', SECRET_KEY: 'SECRET_KEY']])
+                //withCredentials([[$class:'AmazonWebServicesCredentialsBinding',credentialsId: "IAM_USER", accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
                  //withAWS(region: "${AWS_REGION}", credentials: "${IAM_ROLE}"){
-                 withAWS(role: "${IAM_ROLE_ARN}") {
+                 //withAWS(role: "${IAM_ROLE_ARN}") {
                     sh 'echo "Running cfn template Validation"'
                     sh 'for file in `find .workspace/pipeline/cloudformation -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
                     //sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
