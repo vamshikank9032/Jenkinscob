@@ -27,7 +27,7 @@ pipeline {
                 steps {
                 //sh 'echo sh step executed'
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
-                withCredentials([[$class:'AmazonWebServicesCredentialsBinding',credentialsId:"${IAM_USER}"]])
+                withCredentials([[$class:'AmazonWebServicesCredentialsBinding',credentialsId: "IAM_USER"]])
                 withAWS(region: "${AWS_REGION}", credentials: "${IAM_ROLE}"){
                 //withAWS(role: "${AWS_ROLE_ARN}") {
                     sh 'echo "Running cfn template Validation"'
