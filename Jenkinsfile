@@ -36,7 +36,6 @@ pipeline {
                     //sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
                 //create stack
                 sh """
-                   sh 'echo deploy cf step executed'
                    aws cloudformation deploy
                    --region ${AWS_DEFAULT_REGION}
                    --stack-name ${STACK_NAME}
