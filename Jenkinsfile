@@ -15,7 +15,7 @@ pipeline {
               git url: 'https://github.com/vamshikank9032/Jenkinscob.git'  
               sh "ls -lat"  
             //git branch: 'Release' credentialsId: 'Git', url: 'https://github.com/vamshikank9032/Jenkinscob.git'
-              sh pwd  
+             // sh pwd  
             }
         }
         /*stage('sh') {
