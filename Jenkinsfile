@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         AWS_DEFAULT_REGION = 'us-east-2'
-        STACK_NAME = 'sample-s3-CF'
+        STACK_NAME = 'sample-s3-CF1'
         GIT_REPO_URL = 'https://github.com/vamshikank9032/Jenkinscob.git'
         GIT_BRANCH = 'Release'
         IAM_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
@@ -36,7 +36,7 @@ pipeline {
                     //sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
                 //create stack
                 sh """
-                   aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file s3.yaml --stack-name sample-s3-CF             
+                   aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file sb3.yaml --stack-name sample-s3-CF1             
                    --capabilities CAPABILITY_IAM --capabilities CAPABILITY_NAMED_IAM ----parameter-overrides PREPROD
                 """
                 }
