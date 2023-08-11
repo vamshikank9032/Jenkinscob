@@ -24,9 +24,9 @@ pipeline {
             }
         }*/
         stage('Deploy CF Template') {
-           environment {
+           /*environment {
             //AWS_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
-           } 
+           */} 
 
             steps {
                 //sh 'echo sh step executed'
