@@ -31,12 +31,12 @@ pipeline {
                  //withAWS(region: "${AWS_REGION}", credentials: "${IAM_ROLE}"){
                  //withAWS(role: "${IAM_ROLE_ARN}") {
                     sh 'echo "Running cfn template Validation"'
-                    sh pwd
+                    //sh pwd
                     //sh 'for file in `find ./workspace/pipe/cloudformation/ -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
                     //sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
                 //create stack
                 sh """
-                   sh 'echo sh step executed'
+                   sh 'echo deploy cf step executed'
                    aws cloudformation deploy
                    --region ${AWS_REGION}
                    --stack-name ${STACK_NAME}
