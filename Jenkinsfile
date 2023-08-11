@@ -36,12 +36,8 @@ pipeline {
                     //sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
                 //create stack
                 sh """
-                   aws cloudformation deploy
-                   --region ${AWS_DEFAULT_REGION}
-                   --stack-name ${STACK_NAME}
-                   --template-file ${TEMPLATE_FILE}
-                   --capabilities CAPABILITY_IAM
-                   --capabilities CAPABILITY_NAMED_IAM
+                   aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file ${TEMPLATE_FILE} --stack-name ${STACK_NAME}               
+                   --capabilities CAPABILITY_IAM --capabilities CAPABILITY_NAMED_IAM
                 """
                 }
             }
