@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        AWS__DEFAULT_REGION = 'us-east-2'
+        AWS_DEFAULT_REGION = 'us-east-2'
         STACK_NAME = 'sample-s3-CF'
         GIT_REPO_URL = 'https://github.com/vamshikank9032/Jenkinscob.git'
         GIT_BRANCH = 'Release'
@@ -38,7 +38,7 @@ pipeline {
                 sh """
                    sh 'echo deploy cf step executed'
                    aws cloudformation deploy
-                   --region ${AWS_REGION}
+                   --region ${AWS_DEFAULT_REGION}
                    --stack-name ${STACK_NAME}
                    --template-file ${TEMPLATE_FILE}
                    --capabilities CAPABILITY_IAM
