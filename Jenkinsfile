@@ -28,7 +28,7 @@ pipeline {
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
                 //withCredentials([[$class:'AmazonWebServicesCredentialsBinding',credentialsId: "IAM_USER", ACCESS_KEY: 'ACCESS_KEY', SECRET_KEY: 'SECRET_KEY']])
                  //withAWS(region: "${AWS_REGION}", credentials: "${IAM_ROLE}"){
-                 withAWS(role: "${IAM`_ROLE_ARN}") {
+                 withAWS(role: "${IAM_ROLE_ARN}") {
                     sh 'echo "Running cfn template Validation"'
                     sh 'for file in `find .workspace/pipeline/cloudformation -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
                     //sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
