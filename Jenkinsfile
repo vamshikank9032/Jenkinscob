@@ -24,11 +24,7 @@ pipeline {
             }
         }*/
         stage('Deploy CF Template') {
-           /*environment {
-            //AWS_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
-           */} 
-
-            steps {
+                steps {
                 //sh 'echo sh step executed'
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
                 withCredentials([[$class:'AmazonWebServicesCredentialsBinding',credentialsId:'IAM_USER']])
