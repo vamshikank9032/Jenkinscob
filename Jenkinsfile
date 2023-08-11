@@ -6,6 +6,7 @@ pipeline {
         GIT_REPO_URL = 'https://github.com/vamshikank9032/Jenkinscob.git'
         GIT_BRANCH = 'Release'
         IAM_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
+        TEMPLATE_FILE = 's3.yaml'
     }
     stages {
         stage('Git Checkout') {
@@ -31,7 +32,7 @@ pipeline {
                  //withAWS(role: "${IAM_ROLE_ARN}") {
                     sh 'echo "Running cfn template Validation"'
                     sh pwd
-                    sh 'for file in `find ./workspace/pipe/cloudformation/ -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
+                    //sh 'for file in `find ./workspace/pipe/cloudformation/ -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
                     //sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
                 //create stack
                 sh """
@@ -39,7 +40,7 @@ pipeline {
                    aws cloudformation deploy
                    --region ${AWS_REGION}
                    --stack-name ${STACK_NAME}
-                   --template-file ${file}
+                   --template-file ${TEMPLATE_FILE}
                    --capabilities CAPABILITY_IAM
                    --capabilities CAPABILITY_NAMED_IAM
                 """
