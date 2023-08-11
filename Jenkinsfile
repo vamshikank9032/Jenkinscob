@@ -6,7 +6,7 @@ pipeline {
         GIT_REPO_URL = 'https://github.com/vamshikank9032/Jenkinscob.git'
         GIT_BRANCH = 'Release'
         IAM_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
-        TEMPLATE_FILE = 's3.yaml'
+        TEMPLATE_FILE = 'sb3.yaml
     }
     stages {
         stage('Git Checkout') {
@@ -15,6 +15,7 @@ pipeline {
               git url: 'https://github.com/vamshikank9032/Jenkinscob.git'  
               sh "ls -lat"  
             //git branch: 'Release' credentialsId: 'Git', url: 'https://github.com/vamshikank9032/Jenkinscob.git'
+              sh pwd  
             }
         }
         /*stage('sh') {
