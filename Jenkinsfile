@@ -5,8 +5,7 @@ pipeline {
         STACK_NAME = 'sample-s3-CF'
         GIT_REPO_URL = 'https://github.com/vamshikank9032/Jenkinscob.git'
         GIT_BRANCH = 'Release'
-        IAM_ROLE_ARN = arn:aws:iam::737576955452:role/Role_For_Jenkins
-
+        IAM_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
     }
     stages {
         stage('Git Checkout') {
