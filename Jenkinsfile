@@ -5,7 +5,7 @@ pipeline {
         STACK_NAME = 'sample-s3-CF'
         GIT_REPO_URL = 'https://github.com/vamshikank9032/Jenkinscob.git'
         GIT_BRANCH = 'Release'
-        IAM_ROLE = credentials('IAM_USER')
+        IAM_ROLE_ARN = arn:aws:iam::737576955452:role/Role_For_Jenkins
 
     }
     stages {
@@ -27,9 +27,9 @@ pipeline {
                 steps {
                 //sh 'echo sh step executed'
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
-                withCredentials([[$class:'AmazonWebServicesCredentialsBinding',credentialsId: "IAM_USER", ACCESS_KEY: 'ACCESS_KEY', SECRET_KEY: 'SECRET_KEY']])
-                withAWS(region: "${AWS_REGION}", credentials: "${IAM_ROLE}"){
-                //withAWS(role: "${AWS_ROLE_ARN}") {
+                //withCredentials([[$class:'AmazonWebServicesCredentialsBinding',credentialsId: "IAM_USER", ACCESS_KEY: 'ACCESS_KEY', SECRET_KEY: 'SECRET_KEY']])
+                 //withAWS(region: "${AWS_REGION}", credentials: "${IAM_ROLE}"){
+                 withAWS(role: "${IAM`_ROLE_ARN}") {
                     sh 'echo "Running cfn template Validation"'
                     sh 'for file in `find .workspace/pipeline/cloudformation -name "*.yaml"`; do  echo "Validating template $file"; aws cloudformation validate-template --template-body "file://$file"; done'
                     //sh 'aws cloudformation validate-template --template-body file://${TEMPLATE_FILE}'
