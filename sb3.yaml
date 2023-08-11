@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: 2010-09-09
+
+Description: S3 buckets
+  
+Resources:
+  Ref1S3Bucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Delete
+    Properties:
+      BucketName: lrsegf-kankk2
+      Tags:
+        - Key: identifier
+          Value: Financial
