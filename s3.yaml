@@ -1,21 +1,13 @@
 AWSTemplateFormatVersion: 2010-09-09
 
 Description: S3 buckets
-
-Parameters:
-  EnvironmentType:
-    Description: "Required: Environment Type"
-    AllowedValues:
-      - PREPROD
-      - PRODUCTION
-    Type: String
   
 Resources:
   Ref1S3Bucket:
     Type: AWS::S3::Bucket
     DeletionPolicy: Delete
     Properties:
-      BucketName: lrsegf-kank
+      BucketName: lrsegf-kank2
       Tags:
         - Key: identifier
           Value: Financial
