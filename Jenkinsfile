@@ -37,7 +37,7 @@ pipeline {
                 //create stack
                 sh """
                    aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file s3.yaml --stack-name sample-s3-CF             
-                   --capabilities CAPABILITY_IAM --capabilities CAPABILITY_NAMED_IAM
+                   --capabilities CAPABILITY_IAM --capabilities CAPABILITY_NAMED_IAM ----parameter-overrides PREPROD
                 """
                 }
             }
