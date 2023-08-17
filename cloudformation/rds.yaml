@@ -29,6 +29,7 @@ Resources:
     Type: AWS::SecretsManager::Secret
     Properties: 
       Name: masterpwd
+      DeletionPolicy: Retain
       GenerateSecretString: 
         SecretStringTemplate: '{"username": "cobadmin"}'
         GenerateStringKey: "password"
