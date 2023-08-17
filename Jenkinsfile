@@ -6,7 +6,7 @@ pipeline {
         GIT_REPO_URL = 'https://github.com/vamshikank9032/Jenkinscob.git'
         GIT_BRANCH = 'Release'
         IAM_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
-        TEMPLATE_FILE = 'sb3.yaml'
+        TEMPLATE_FILE = 'rds.yaml'
     }
     stages {
         stage('Git Checkout') {
@@ -40,6 +40,7 @@ pipeline {
                    ls
                    pwd
                    cd cloudformation/
+                   ls
                    aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file rds.yaml --stack-name sample-rds-CF1             
                 """
                 }
