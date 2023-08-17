@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         AWS_DEFAULT_REGION = 'us-east-2'
-        STACK_NAME = 'sample-s3-CF1'
+        STACK_NAME = 'sample-rds-CF1'
         GIT_REPO_URL = 'https://github.com/vamshikank9032/Jenkinscob.git'
         GIT_BRANCH = 'Release'
         IAM_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
@@ -39,8 +39,8 @@ pipeline {
                 sh """
                    ls
                    pwd
-                   aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file sb3.yaml --stack-name sample-s3-CF1             
-                   --parameter-overrides PREPROD
+                   cd /cloudformation
+                   aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file rds.yaml --stack-name sample-rds-CF1             
                 """
                 }
             }
