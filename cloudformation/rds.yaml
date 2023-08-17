@@ -45,7 +45,7 @@ Resources:
       Engine: aurora-mysql
       MasterUsername: cobadmin
       MasterUserPassword: 'adSjiTjKN23JIuFHI'
-      AllocatedStorage: 5
+      AllocatedStorage: 2
       Tags:
         - Key: Name
           Value: cobprimary
