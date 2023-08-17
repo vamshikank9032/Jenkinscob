@@ -33,7 +33,7 @@ Resources:
         SecretStringTemplate: '{"username": "cobadmin"}'
         GenerateStringKey: "password"
         PasswordLength: 16
-        ExcludeCharacters: '"@'/'    
+        ExcludeCharacters: '"@/'    
 
   RDSCluster:
     Type: AWS::RDS::DBCluster
