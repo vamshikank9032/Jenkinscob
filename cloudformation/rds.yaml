@@ -1,0 +1,47 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Stack to create an RDS DB and update
+
+Resources:
+  DBClusterParameterGroup:
+    Type: AWS::RDS::DBClusterParameterGroup
+    Properties: 
+      DBClusterParameterGroupName: cobpg
+      Description: DB Cluster parameter group for cob
+      Family: aurora-mysql5.7
+      Tags: 
+        - Key: Name
+          Value: COBDBCPG
+
+  DBParameterGroup:
+    Type: AWS::RDS::DBParameterGroup
+    Properties: 
+      DBParameterGroupName: cobpgg
+      Description: DB parameter group for cob
+      Family: aurora-mysql5.7
+      Tags: 
+        - Key: Name
+          Value: COBDBCPGG
+
+  RDSCluster:
+    Type: AWS::RDS::DBCluster
+    Properties: 
+      DatabaseName: cobdbrds
+      DBClusterParameterGroupName: Ref DBClusterParameterGroup
+      DBInstanceParameterGroupName: Ref DBParameterGroup
+      Engine: aurora-mysql
+      MasterUsername: cobadmin
+      MasterUserPassword: cobadmin103
+  
+
+  DBPrimaryInstance:
+    Type: AWS::RDS::DBInstance
+    Properties: 
+      DBClusterIdentifier: cobdbrds
+      DBInstanceIdentifier: cobprimary
+      DBInstanceClass: db.t3.small
+      DBName: cobdb
+      DBParameterGroupName: Ref DBParameterGroup
+      Engine: aurora-mysql
+      Tags:
+        - Key: Name
+          Value: cobprimary
