@@ -35,7 +35,7 @@ Resources:
       Engine: aurora-mysql
       MasterUsername: cobadmin
       MasterUserPassword: 'adSjiTjKN10JIuFHI'
-  
+      AllocatedStorage: 10
 
   DBPrimaryInstance:
     Type: AWS::RDS::DBInstance
@@ -46,6 +46,7 @@ Resources:
       Engine: aurora-mysql
       MasterUsername: cobadmin
       MasterUserPassword: 'adSjiTjKN23JIuFHI'
+      AllocatedStorage: 5
       Tags:
         - Key: Name
           Value: cobprimary
