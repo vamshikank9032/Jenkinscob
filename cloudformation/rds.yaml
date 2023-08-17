@@ -40,7 +40,6 @@ Resources:
   DBPrimaryInstance:
     Type: AWS::RDS::DBInstance
     Properties: 
-      DBInstanceIdentifier: cobprimary
       DBInstanceClass: db.t3.small
       DBName: cobdb
       DBParameterGroupName: cobpgg
