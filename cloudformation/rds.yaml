@@ -40,7 +40,7 @@ Resources:
   DBPrimaryInstance:
     Type: AWS::RDS::DBInstance
     Properties: 
-      DBClusterIdentifier: cobdbrds
+      DBClusterIdentifier: !Ref RDSCluster
       DBInstanceIdentifier: cobprimary
       DBInstanceClass: db.t3.small
       DBName: cobdb
