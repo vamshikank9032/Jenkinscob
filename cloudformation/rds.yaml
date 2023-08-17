@@ -25,6 +25,14 @@ Resources:
       Tags: 
         - Key: Name
           Value: COBDBCPGG
+  MyPassword:
+    Type: AWS::SecretsManager::Secret
+    Properties: 
+      Name: masterpwd
+      GenerateSecretString: SecretStringTemplate: '{"username":"cobadmin"}'
+      GenerateStringKey: "password"
+      PasswordLength: 16
+      ExcludeCharacters: '"@'/'    
 
   RDSCluster:
     Type: AWS::RDS::DBCluster
@@ -34,7 +42,7 @@ Resources:
       DBInstanceParameterGroupName: cobpgg
       Engine: aurora-mysql
       MasterUsername: cobadmin
-      MasterUserPassword: Vamkank$109
+      MasterUserPassword: !Ref MyPassword
   
 
   DBPrimaryInstance:
