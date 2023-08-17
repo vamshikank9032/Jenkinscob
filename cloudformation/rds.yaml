@@ -34,7 +34,7 @@ Resources:
       DBInstanceParameterGroupName: cobpgg
       Engine: aurora-mysql
       MasterUsername: cobadmin
-      MasterUserPassword: Cobadmin#103
+      MasterUserPassword: Attiins#103
   
 
   DBPrimaryInstance:
