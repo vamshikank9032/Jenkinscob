@@ -44,6 +44,8 @@ Resources:
       DBName: cobdb
       DBParameterGroupName: cobpgg
       Engine: aurora-mysql
+      MasterUsername: cobadmin
+      MasterUserPassword: 'adSjiTjKN23JIuFHI'
       Tags:
         - Key: Name
           Value: cobprimary
