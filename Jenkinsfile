@@ -41,7 +41,7 @@ pipeline {
                    pwd
                    cd cloudformation/
                    ls
-                   aws cloudformation update-stack --region ${AWS_DEFAULT_REGION} --template-file rds.yaml --stack-name sample-rds-CF1             
+                   aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file rds.yaml --stack-name sample-rds-CF1             
                 """
                 }
             }
