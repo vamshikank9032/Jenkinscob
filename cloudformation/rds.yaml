@@ -9,7 +9,6 @@ Resources:
       Description: DB Cluster parameter group for cob
       Parameters:
         lower_case_table_names: 1
-        collation_server: utf8mb4_unicode_ci
       Family: aurora-mysql5.7
       Tags: 
         - Key: Name
