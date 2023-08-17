@@ -30,8 +30,8 @@ Resources:
     Type: AWS::RDS::DBCluster
     Properties: 
       DatabaseName: cobdbrds
-      DBClusterParameterGroupName: Ref DBClusterParameterGroup
-      DBInstanceParameterGroupName: Ref DBParameterGroup
+      DBClusterParameterGroupName: cobpg
+      DBInstanceParameterGroupName: cobpgg
       Engine: aurora-mysql
       MasterUsername: cobadmin
       MasterUserPassword: cobadmin103
