@@ -44,7 +44,7 @@ Resources:
       DBInstanceIdentifier: cobprimary
       DBInstanceClass: db.t3.small
       DBName: cobdb
-      DBParameterGroupName: Ref DBParameterGroup
+      DBParameterGroupName: cobpgg
       Engine: aurora-mysql
       Tags:
         - Key: Name
