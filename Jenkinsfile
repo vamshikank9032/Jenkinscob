@@ -40,7 +40,7 @@ pipeline {
                    ls
                    pwd
                    aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file sb3.yaml --stack-name sample-s3-CF1             
-                   --capabilities CAPABILITY_IAM --capabilities CAPABILITY_NAMED_IAM ----parameter-overrides PREPROD
+                   --parameter-overrides PREPROD
                 """
                 }
             }
