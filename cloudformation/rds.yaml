@@ -29,7 +29,7 @@ Resources:
     Type: AWS::SecretsManager::Secret
     Properties: 
       Name: masterpwd
-      GenerateSecretString: SecretStringTemplate: '{"username":"cobadmin"}'
+      GenerateSecretString: SecretStringTemplate: '{"username": "cobadmin"}'
       GenerateStringKey: "password"
       PasswordLength: 16
       ExcludeCharacters: '"@'/'    
