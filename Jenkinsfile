@@ -8,6 +8,9 @@ pipeline {
         IAM_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
         TEMPLATE_FILE = 'rds.yaml'
     }
+    parameters {
+        string(name: 'DBUsername', defaultValue: 'master')
+        string(name: 'DBPassword', defaultValue: 'Fghyo1289dffh90')
     stages {
         stage('Git Checkout') {
             steps {
