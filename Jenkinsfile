@@ -43,7 +43,7 @@ pipeline {
                    pwd
                    cd cloudformation/
                    ls
-                   aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file EC2.yaml --stack-name sample-EC2-CF1 --parameters ParameterKey=AMI,ParameterValue=$AMI_ID       
+                   aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file EC2.yaml --stack-name sample-EC2-CF1 --parameter-overrides file: ./parameters.json       
                 """
                 }
             }
