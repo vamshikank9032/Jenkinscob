@@ -8,9 +8,9 @@ pipeline {
         IAM_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
         TEMPLATE_FILE = 'rds1.yaml'
     }
-    parameters {          
-          string(name: 'AMI', defaultValue: 'ami-0ccabb5f82d4c9af5', description: 'Name of AMI to use')
-         }
+ environment {
+          AMI_ID = 'ami-0ccabb5f82d4c9af5'
+          }
     stages {
         stage('Git Checkout') {
             steps {
@@ -44,7 +44,7 @@ pipeline {
                    pwd
                    cd cloudformation/
                    ls
-                   aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file EC2.yaml --stack-name sample-EC2-CF1             
+                   aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file EC2.yaml --stack-name sample-EC2-CF1 --parameters ParameterKey=AMI,ParameterValue=$AMI_ID       
                 """
                 }
             }
