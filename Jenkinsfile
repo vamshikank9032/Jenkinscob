@@ -8,7 +8,9 @@ pipeline {
         IAM_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
         TEMPLATE_FILE = 'rds1.yaml'
     }
-
+    parameters {          
+          string(name: 'AMI', defaultValue: 'ami-0ccabb5f82d4c9af5', description: 'Name of AMI to use')
+         }
     stages {
         stage('Git Checkout') {
             steps {
