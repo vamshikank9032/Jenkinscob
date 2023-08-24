@@ -1,0 +1,65 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+  AWS CloudFormation template to create database(s) required.
+ 
+ Parameters:
+  DBUser:
+    NoEcho: "true"
+    Description: The database admin account username
+    Type: String
+    MinLength: "1"
+    MaxLength: "16"
+    AllowedPattern: "[a-zA-Z][a-zA-Z0-9]*"
+    ConstraintDescription: must begin with a letter and contain only alphanumeric characters.
+    Default: masterdb
+  DBPassword:
+    NoEcho: "true"
+    Description: The database admin account password
+    Type: String
+    MinLength: "8"
+    MaxLength: "41"
+    ConstraintDescription: must have at least 8 & at most 41 characters
+    Default: jki87HUjjih78897
+  
+Resources:
+  DBClusterParameterGroup:
+    Type: AWS::RDS::DBClusterParameterGroup
+    Properties: 
+      DBClusterParameterGroupName: cobpg
+      Description: DB Cluster parameter group for cob
+      Parameters:
+        lower_case_table_names: 1
+      Family: aurora-mysql5.7
+      Tags: 
+        - Key: Name
+          Value: COBDBCPG
+
+  DBParameterGroup:
+    Type: AWS::RDS::DBParameterGroup
+    Properties: 
+      DBParameterGroupName: cobpgg
+      Description: DB parameter group for cob
+      Parameters:
+        sql_mode: 'PIPES_AS_CONCAT'
+      Family: aurora-mysql5.7
+      Tags: 
+        - Key: Name
+          Value: COBDBCPGG
+  RDSCluster:
+    Type: AWS::RDS::DBCluster
+    Properties:
+      DatabaseName: cobdbrds
+      DBClusterParameterGroupName: cobpg
+      DBInstanceParameterGroupName: cobpgg
+      Engine: aurora-mysql
+      MasterUsername: !Ref DBUser
+      MasterUserPassword: !Ref DBPassword
+      
+  RDSDBInstance1:
+    Type: "AWS::RDS::DBInstance"
+    Properties:
+      DBInstanceClass: db.t3.small
+      DBParameterGroupName: cobpgg
+      Engine: aurora-mysql
+      
+
