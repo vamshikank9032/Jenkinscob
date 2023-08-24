@@ -7,10 +7,9 @@ pipeline {
         GIT_BRANCH = 'Release'
         IAM_ROLE_ARN = 'arn:aws:iam::737576955452:role/Role_For_Jenkins'
         TEMPLATE_FILE = 'rds1.yaml'
+         AMI_ID = 'ami-0ccabb5f82d4c9af5'
     }
-    environment {
-          AMI_ID = 'ami-0ccabb5f82d4c9af5'
-          }
+    
     stages {
         stage('Git Checkout') {
             steps {
