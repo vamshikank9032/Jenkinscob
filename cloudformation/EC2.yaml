@@ -15,7 +15,7 @@ Parameters:
   SG:
     Description: SecurityGroup
     Type: List<AWS::EC2::SecurityGroup::Id>
-    Default: [sg-06dfac953e6fe319e]
+    Default: sg-06dfac953e6fe319e
 Resources:
   EC2Instance:
     Type: AWS::EC2::Instance
