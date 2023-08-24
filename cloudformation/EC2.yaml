@@ -21,7 +21,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: Ref 'InstanceType'
-      SecurityGroups: Ref 'SG'
+      SecurityGroupIds: Ref 'SG'
       KeyName: Ref 'KeyName'
       ImageId: Ref 'AMI'
   
