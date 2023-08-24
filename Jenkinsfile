@@ -11,6 +11,7 @@ pipeline {
     parameters {
         string(name: 'DBUsername', defaultValue: 'master')
         string(name: 'DBPassword', defaultValue: 'Fghyo1289dffh90')
+    }
     stages {
         stage('Git Checkout') {
             steps {
