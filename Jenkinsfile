@@ -28,6 +28,7 @@ pipeline {
         }*/
         stage('Deploy CF Template') {
                 steps {
+                    script {
                        def amiId = 'ami-0ccabb5f82d4c9af5'
                          //sh 'echo sh step executed'
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
@@ -47,7 +48,8 @@ pipeline {
                    aws cloudformation deploy --region ${AWS_DEFAULT_REGION} --template-file EC2.yaml --stack-name sample-EC2-CF1 --parameter-overrides AMI=$amiId
                 """
                 }
-            }
+                }
+                }
                            
     }
     post {
