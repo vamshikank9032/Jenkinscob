@@ -31,6 +31,7 @@ pipeline {
                     script {
                         def parameters = readJSON file: './parameters.json'
                         def amiId = parameters[0].parameterValue
+                    }
                 //sh 'echo sh step executed'
                 //sh 'echo "Validating template ${TEMPLATE_FILE}"'
                 //withCredentials([[$class:'AmazonWebServicesCredentialsBinding',credentialsId: "IAM_USER", accessKeyVariable: 'AWS_ACCESS_KEY_ID', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']])
