@@ -14,7 +14,7 @@ Parameters:
     Default: ami-0ccabb5f82d4c9af5
   SG:
     Description: SecurityGroup
-    Type: List of String
+    Type: List<AWS::EC2::SecurityGroup::Id>
     Default: sg-06dfac953e6fe319e
 Resources:
   EC2Instance:
