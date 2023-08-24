@@ -3,23 +3,23 @@ Description:
   AWS CloudFormation template to create database(s) required.
  
  Parameters:
-  DBUser:
-    NoEcho: "true"
-    Description: The database admin account username
-    Type: String
-    MinLength: "1"
-    MaxLength: "16"
-    AllowedPattern: "[a-zA-Z][a-zA-Z0-9]*"
-    ConstraintDescription: must begin with a letter and contain only alphanumeric characters.
-    Default: masterdb
-  DBPassword:
-    NoEcho: "true"
-    Description: The database admin account password
-    Type: String
-    MinLength: "8"
-    MaxLength: "41"
-    ConstraintDescription: must have at least 8 & at most 41 characters
-    Default: jki87HUjjih78897
+   DBUser:
+     NoEcho: "true"
+     Description: The database admin account username
+     Type: String
+     MinLength: "1"
+     MaxLength: "16"
+     AllowedPattern: "[a-zA-Z][a-zA-Z0-9]*"
+     ConstraintDescription: must begin with a letter and contain only alphanumeric characters.
+     Default: masterdb
+   DBPassword:
+     NoEcho: "true"
+     Description: The database admin account password
+     Type: String
+     MinLength: "8"
+     MaxLength: "41"
+     ConstraintDescription: must have at least 8 & at most 41 characters
+     Default: jki87HUjjih78897
   
 Resources:
   DBClusterParameterGroup:
