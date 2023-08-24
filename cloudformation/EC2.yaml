@@ -11,7 +11,6 @@ Parameters:
     Default: t2.micro
   AMI:
     Type: String
-    Default: ami-0ccabb5f82d4c9af5
   SG:
     Description: SecurityGroup
     Type: List<AWS::EC2::SecurityGroup::Id>
