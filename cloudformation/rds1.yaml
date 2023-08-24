@@ -61,5 +61,6 @@ Resources:
       DBInstanceClass: db.t3.small
       DBParameterGroupName: cobpgg
       Engine: aurora-mysql
-      
+      MasterUsername: !Ref DBUser
+      MasterUserPassword: !Ref DBPassword
 
